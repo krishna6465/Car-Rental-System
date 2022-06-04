@@ -1,0 +1,108 @@
+#include <iostream>
+#include<string.h>
+using namespace std;
+class reg
+{
+    protected:
+  char username[50];
+  int password;
+public:
+  void get ()
+  {
+      cout<<"   **WELCOME IN SHRI RADHEY CAR RENTAL CO. **   ";
+    cout << "\nEnter username: ";
+    cin >> username;
+    cout << "Enter password: ";
+    cin >> password;
+
+  }
+  void print ()
+  {
+    cout << "\n\n** Entered Informtion **\n";
+    cout << "Username:  " << username;
+    cout << "\nPassword:  " << password;
+  }
+  void login ()
+  {
+    int n, pass;
+    char user[50];
+    cout << "\n\nPress  1  for login: ";
+    cin >> n;
+    switch (n)
+      {
+      case 1:
+      Enter:
+
+	cout << "\n\nenter your username : ";
+	cin >> user;
+	cout << "\nEnter your password : ";
+	cin >> pass;
+
+	if ((username == user) || (password == pass))
+	  {
+	    cout << "login sucessful";
+	  }
+
+	else
+	  {
+	    cout << "\nplease Re-enter username and password";
+
+	    goto Enter;
+	  }
+	break;
+
+      default:
+	cout << "wrong choice";
+      }
+  }
+};
+
+class car:public reg
+{
+    
+public:
+void call()
+{
+    get();
+    print();
+    login();
+}
+void select()
+{
+    Enter:
+   int n,c;
+   
+   cout<<" press\n 1: for Aston Martin\n 2: for BMW\n 3: for Cadillac\n 4: for Chevrolet\n 5: for Ferrari";
+   cin>>n;
+   switch(n)
+   {
+    case 1:
+    cout<<"\n*you choose Aston Martin*";
+    cout<<"\nRent for one day: $75";
+    cout<<"\nare you want to hire this car for confirm press 1 or 2 for cancell or 3 for exit\n";
+    cin>>c;
+    if(c==1)
+    {
+        cout<<"your car is book for one day ";
+    }
+   if(c==2)
+   {
+      
+       goto Enter;
+      // break;
+   }
+   if(c==3)
+   {
+       cout<<"thank you for visiting ";
+   }
+   }
+    }
+};
+int
+main ()
+{
+  car obj;
+  obj.call();
+  obj.select();
+  return 0;
+}
